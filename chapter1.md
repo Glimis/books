@@ -20,6 +20,8 @@ css2
 * 修改position后,立马变成z-index的比较
 * 容器之间层叠均在兄弟之间,故比较时,属于只修改margin后产生的现象
 
+脱离文档流\(float\)在容器\(block\)与文字\(inline\)之间
+
 ## 窗口元素
 
 select,老版iframe,object等,其本身为一个独立的窗口,不必遵守当前窗口的渲染规则
