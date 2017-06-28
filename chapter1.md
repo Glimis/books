@@ -9,11 +9,21 @@
 
 ## 窗口元素
 
-select,老版iframe,object等,其本身\(窗口元素\)总是显示在无窗口元素至上
+select,老版iframe,object等,其本身为一个独立的窗口,不必遵守当前窗口的渲染规则
+
+感受一下:
+
+![](/assets/import.png)
+
+![](/assets/select2.png)
+
+浏览器都能打穿,更不用说其他元素,可以使用div等元素替换这种性质,但是相应的,也需要遵守z-index的规则
+
+select\(combobox\)组件的创建方式,也决定的其使用场景\(见实例影响\)
 
 # 实例影响
 
-所有的,具有覆盖性质的组件,其实现均与z-index有关
+1. 自定义下拉![](/assets/combobox.png)以上为iuap下拉实现的方式,
 
 
 
