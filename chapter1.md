@@ -9,14 +9,13 @@
 
 ## stacking order
 
-> the background and borders of the element forming the stacking context.
->
-> 1. the child stacking contexts with negative stack levels \(most negative first\).
-> 2. the in-flow, non-inline-level, non-positioned descendants.
-> 3. the non-positioned floats.
-> 4. the in-flow, inline-level, non-positioned descendants, including inline tables and inline blocks.
-> 5. the child stacking contexts with stack level 0 and the positioned descendants with stack level 0.
-> 6. the child stacking contexts with positive stack levels \(least positive first\).
+> 1. the background and borders of the element forming the stacking context.
+> 2. the child stacking contexts with negative stack levels \(most negative first\).
+> 3. the in-flow, non-inline-level, non-positioned descendants.
+> 4. the non-positioned floats.
+> 5. the in-flow, inline-level, non-positioned descendants, including inline tables and inline blocks.
+> 6. the child stacking contexts with stack level 0 and the positioned descendants with stack level 0.
+> 7. the child stacking contexts with positive stack levels \(least positive first\).
 
 此处所说的层叠顺序包括单个元素下的背景色,背景图,内容以及其他元素,具体分层如图
 
