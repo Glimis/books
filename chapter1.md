@@ -7,7 +7,13 @@
 * [https://www.w3.org/TR/CSS2/visuren.html\#z-index](https://www.w3.org/TR/CSS2/visuren.html#z-index)
 * [https://www.w3.org/TR/css-position-3/\#propdef-z-index](https://www.w3.org/TR/css-position-3/#propdef-z-index)
 
-## 
+## stacking order
+
+css2
+
+
+
+
 
 ## 窗口元素
 
@@ -41,8 +47,6 @@ select\(combobox\)组件的创建方式,也决定的其使用场景\(见实例�
 如果使用组件的方式去描述整个页面,而在某个form表单中需要使用模态框,此时,如果依然在子组件内部描述模态框,依然容易瞎
 
 模态框是最特殊的组件,开单章
-
-
 
 # 参考
 
