@@ -7,7 +7,13 @@
 * [https://www.w3.org/TR/CSS2/visuren.html\#z-index](https://www.w3.org/TR/CSS2/visuren.html#z-index)
 * [https://www.w3.org/TR/css-position-3/\#propdef-z-index](https://www.w3.org/TR/css-position-3/#propdef-z-index)
 
-# 实例
+## 窗口元素
 
-!\[PNG\]\(images/server1.png\)
+select,老版iframe,object等,其本身\(窗口元素\)总是显示在无窗口元素至上
+
+# 实例影响
+
+所有的,具有覆盖性质的组件,其实现均与z-index有关
+
+
 
