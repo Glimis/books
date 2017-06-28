@@ -13,9 +13,7 @@
 
 css2
 
-
-
-以上内容指层叠环境\(stacking context\)中的顺序,父子之间参照文档流,文字并不会主动产生层叠
+以上内容指层叠环境\(stacking context\)中的顺序
 
 简单的说
 
@@ -26,8 +24,6 @@ css2
 脱离文档流\(float\)在容器\(block\)与文字\(inline\)之间
 
 ## stacking context
-
-
 
 ## 窗口元素
 
