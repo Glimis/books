@@ -25,7 +25,7 @@ css2
 
 简单的说
 
-* 底色与背景图\(无子节点的元素
+* 底色与背景图\(无子节点的元素\)
 
 常见的黑底+图   demo1
 
@@ -39,7 +39,9 @@ z-index的使用规范,如
 
 本身用来做环绕效果,float至于block之上  demo2
 
-若float兄弟节点修改为relative后,此时激活z-index demo3
+若float兄弟节点修改为relative后,此时激活z-index,参照stacking order  demo3
+
+
 
 ## stacking context
 
