@@ -31,7 +31,7 @@ css2
 
 * 修改position后,立马变成z-index的比较 z-index
 
-z-index的使用规范
+z-index的使用规范即
 
 * 容器之间层叠均在兄弟之间,故比较时,属于只修改margin后产生的现象
 
