@@ -39,7 +39,7 @@ z-index的使用规范,如
 
 本身用来做环绕效果,即float至于block之上
 
-若float兄弟节点修改为relative后,此时激活z-index,参照stacking order  demo3
+若float兄弟节点修改为relative后,此时激活z-index,参照stacking order
 
 ## stacking context
 
