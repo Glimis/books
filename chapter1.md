@@ -86,9 +86,7 @@ select\(combobox\)组件的创建方式,也决定的其使用场景\(见实例�
 
 * tips与悬浮提示框
 
-如果需要创建tips,默认会在哪一行?不放iuap,容易瞎
-
-![](/assets/tips.png)
+如果需要创建tips,默认会在哪一行?不放iuap,容易瞎![](/assets/tips.png)
 
 当然,每一个tips组件都会有一个根节点的概念\(默认body\),以此来保证tips会跟根节点保持滚动一直
 
