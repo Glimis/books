@@ -41,11 +41,13 @@ z-index的使用规范,如
 
 若float兄弟节点修改为relative后,此时激活z-index,参照stacking order  demo3
 
-
-
 ## stacking context
 
+[https://www.w3.org/TR/css-position-3/\#propdef-z-index](#)
+
 [https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding\_z\_index/The\_stacking\_context](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context)
+
+
 
 ## 窗口元素
 
