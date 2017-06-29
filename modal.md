@@ -115,7 +115,7 @@ Refer.fn.open = function() {
 
 以上为iuap实现源码,具体实现~~抄~~借用bootstrap-modal,而后依赖require\(`require([this.options.pageUrl]`\)获取弹出框的js与html,并进行内容注入`self.$contentEle.html(module.template);`和事件挂载`module.init(self);`
 
-但是..既然已经依赖了require,也写下了url,为什么不在调用时,就直接引用模态框对象,而后直接使用改对象即可-。-
+但是..既然已经依赖了require,也写下了url,为什么不在调用时,就直接引用模态框对象,而后直接使用该对象-。-
 
 比如:
 
