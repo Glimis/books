@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [z-index](chapter1.md)
-* [position](position.md)
+* [modal](modal.md)
 
