@@ -34,5 +34,11 @@
 
 与其他jq组件一样,将以上代码至于body下,并使用$\(\).modal系列进行交互即可
 
-各种MVVM系列的bootstrap的实现,大多数依然是使用modal
+各种MVVM系列的bootstrap的实现,大多数依然是使用相应的标签进行实现,并没有任何区别,比如
+
+
+
+以上为elementUI,Vue版的dialog,换了个马甲
+
+
 
