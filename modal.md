@@ -99,8 +99,8 @@ layer.open({
 Refer.fn.open = function() {
     var self = this
     if (self.isDefaultDialog){
-    	self.dialog.modal('show')
-					
+        self.dialog.modal('show')
+
       self.dialog.on('hidden.bs.modal', function () {
         self.dialog.remove()
       })
@@ -136,5 +136,5 @@ $.refer({
 
 具体原因不在讨论,总之相比于layer,提取出了modalObject,该对象内部包括html与js,甚至css的方式,也算一大进步
 
-
+...
 
