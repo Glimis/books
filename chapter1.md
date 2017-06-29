@@ -23,11 +23,11 @@
 
 此处层叠上下文\(stacking context\),默认为body
 
-简单的说
+简单例子
 
 * 底色与背景图\(无子节点的元素\)
 
-常见的黑底+图 
+常见的黑底+图,即背景图在背景色之上
 
 * 修改position后,立马变成z-index的比较 z-index
 
@@ -37,7 +37,7 @@ z-index的使用规范,如
 
 * float 脱离文档流
 
-本身用来做环绕效果,float至于block之上
+本身用来做环绕效果,即float至于block之上
 
 若float兄弟节点修改为relative后,此时激活z-index,参照stacking order  demo3
 
