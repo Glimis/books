@@ -21,7 +21,7 @@
 
 css2
 
-层叠上下文\(stacking context\),此处默认为body
+此处层叠上下文\(stacking context\),默认为body
 
 简单的说
 
