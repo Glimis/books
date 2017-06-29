@@ -19,7 +19,7 @@
 
 此处所说的层叠顺序包括背景色,背景图,内容以及其他元素,具体分层如图
 
-css2
+![](/assets/608782-20160923104742809-2054066790.png)
 
 此处层叠上下文\(stacking context\),默认为body
 
@@ -27,7 +27,7 @@ css2
 
 * 底色与背景图\(无子节点的元素\)
 
-常见的黑底+图   demo1
+常见的黑底+图 
 
 * 修改position后,立马变成z-index的比较 z-index
 
@@ -37,17 +37,25 @@ z-index的使用规范,如
 
 * float 脱离文档流
 
-本身用来做环绕效果,float至于block之上  demo2
+本身用来做环绕效果,float至于block之上
 
 若float兄弟节点修改为relative后,此时激活z-index,参照stacking order  demo3
 
 ## stacking context
 
+层叠上下文是层叠顺序最底层的"画板",默认情况下为body,z-index也会创建一个新的上下文
+
+故层叠顺序其实就是层叠上下文内的其他子层叠上下文与float,block,inline的关系
+
+css3中增加了创建stacking context的方式,其具体的规则,参考
+
 [https://www.w3.org/TR/css-position-3/\#propdef-z-index](#)
 
-[https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding\_z\_index/The\_stacking\_context](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context)
+蛋疼的化,有中文的简化版
 
+[https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding\_z\_index/The\_stacking\_context](#)
 
+总之与具体的css3样式的理念有关,不在详细描述
 
 ## 窗口元素
 
