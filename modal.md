@@ -36,9 +36,11 @@
 
 各种MVVM系列的bootstrap的实现,大多数依然是使用相应的标签进行实现,并没有任何区别,比如
 
+以上为elementUI,Vue版的dialog,换了个马甲而已
+
+对于可复用的modal,成为参照\(本公司\),最大特点在于
 
 
-以上为elementUI,Vue版的dialog,换了个马甲
 
 
 
