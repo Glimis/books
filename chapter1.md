@@ -17,7 +17,7 @@
 > 6. the child stacking contexts with stack level 0 and the positioned descendants with stack level 0.
 > 7. the child stacking contexts with positive stack levels \(least positive first\).
 
-此处所说的层叠顺序包括单个元素下的背景色,背景图,内容以及其他元素,具体分层如图
+此处所说的层叠顺序包括背景色,背景图,内容以及其他元素,具体分层如图
 
 css2
 
