@@ -35,9 +35,9 @@ z-index的使用规范,如
 
 [http://www.w3school.com.cn/cssref/pr\_pos\_z-index.asp](http://www.w3school.com.cn/cssref/pr_pos_z-index.asp)
 
-* 容器之间层叠均在兄弟之间,故比较时,属于只修改margin后产生的现象
+* float 脱离文档流
 
-脱离文档流\(float\)在容器\(block\)与文字\(inline\)之间
+
 
 ## stacking context
 
