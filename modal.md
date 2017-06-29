@@ -30,8 +30,6 @@
     </div>
   </div>
 </div>
-
-
 ```
 
 与其他jq组件一样,将以上代码至于body下,并使用$\(\).modal系列进行交互即可
@@ -76,5 +74,67 @@ layer.open({
 
 其复用的方式依然是"经典"的自定义html内容,因为仅包含html内容,故弹出框所对应的事件与样式\(js/css\),需要额外的处理\(引用\)
 
-第二种则是更"经典"的iframe复用,一个iframe,正好包括了弹出框所有要的html/js/css,且不涉及到
+第二种则是更"经典"的iframe复用,一个iframe,正好包括了弹出框所有要的html/js/css,且不涉及到跨域时,与iframe交互并不算复杂
+
+### iuap
+
+```
+  $.refer({
+    title:'组织部门选择',
+    isPOPMode: true,
+    contentId: 'ref_organization',
+    width: '600px',
+    pageUrl: 'js/widgets/refer/referorganization',
+    enterpriseId:Common.store.get("user").user.enterpriseId,
+    orgonly: true,
+    onOk: function(data) {
+      params.onselect(data)
+    }
+  })
+```
+
+重官网抄的代码,不算违规-。-
+
+```
+Refer.fn.open = function() {
+    var self = this
+    if (self.isDefaultDialog){
+    	self.dialog.modal('show')
+					
+      self.dialog.on('hidden.bs.modal', function () {
+        self.dialog.remove()
+      })
+    }
+    require([this.options.pageUrl], function(module) {
+        self.$contentEle.html(module.template);
+        module.init(self);
+        self.loaded = true;
+    })
+}
+```
+
+以上为iuap实现源码,具体实现~~抄~~借用bootstrap-modal,而后依赖require\(`require([this.options.pageUrl]`\)获取弹出框的js与html,并进行内容注入`self.$contentEle.html(module.template);`和事件挂载`module.init(self);`
+
+但是..既然已经依赖了require,为什么不在调用时,就直接引用改模态框对象,而后直接使用改对象即可-。-
+
+比如:
+
+```
+$.refer({
+  title:'组织部门选择',
+  isPOPMode: true,
+  contentId: 'ref_organization',
+  width: '600px',
+  pageUrl: referorganizationObject,
+  enterpriseId:Common.store.get("user").user.enterpriseId,
+  orgonly: true,
+  onOk: function(data) {
+    params.onselect(data)
+  }
+})
+```
+
+具体原因不在讨论,总之相比于layer,提取出了modalObject,该对象内部包括html与js,甚至css的方式,也算一大进步
+
+
 
