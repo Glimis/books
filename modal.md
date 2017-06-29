@@ -10,7 +10,7 @@
 
 其具体原因参考 z-index
 
-## 实现与复用
+## 实现
 
 ```
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -34,5 +34,7 @@
 
 与其他jq组件一样,将以上代码至于body下,并使用$\(\).modal系列进行交互即可
 
-但这只是实现,而非复用, 
+但此处并没有处理复用,逼近,复用是"框架"需要处理的
+
+
 
