@@ -21,7 +21,7 @@
 
 css2
 
-以上内容指层叠环境\(stacking context\)中的顺序
+以上内容指层叠上下文境\(stacking context\)中的顺序, 
 
 简单的说
 
