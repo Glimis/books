@@ -43,6 +43,8 @@ z-index的使用规范,如
 
 ## stacking context
 
+[https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding\_z\_index/The\_stacking\_context](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index/The_stacking_context)
+
 ## 窗口元素
 
 select,老版iframe,object等,其本身为一个独立的窗口,不必遵守当前窗口的渲染规则
