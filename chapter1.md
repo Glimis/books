@@ -63,6 +63,10 @@ select,老版iframe,object等,其本身为一个独立的窗口,不必遵守当�
 
 感受一下:
 
+![](/assets/import.png)
+
+![](/assets/select2.png)
+
 浏览器都能打穿,更不用说其他元素,可以使用div等元素替换这种性质,但是相应的,也需要遵守z-index的规则
 
 select\(combobox\)组件的创建方式,也决定的其使用场景\(见实例影响\)
@@ -70,6 +74,8 @@ select\(combobox\)组件的创建方式,也决定的其使用场景\(见实例�
 # 实例影响
 
 * 自定义下拉
+
+![](/assets/combobox.png)
 
 以上为iuap下拉实现的方式,根据z-index的规则,当外框必须为overflow:hide时,就会出现各种意外,如
 
@@ -81,6 +87,8 @@ select\(combobox\)组件的创建方式,也决定的其使用场景\(见实例�
 * tips与悬浮提示框
 
 如果需要创建tips,默认会在哪一行?不放iuap,容易瞎
+
+![](/assets/tips.png)
 
 当然,每一个tips组件都会有一个根节点的概念\(默认body\),以此来保证tips会跟根节点保持滚动一直
 
