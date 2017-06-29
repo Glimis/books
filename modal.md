@@ -30,6 +30,8 @@
     </div>
   </div>
 </div>
+
+
 ```
 
 与其他jq组件一样,将以上代码至于body下,并使用$\(\).modal系列进行交互即可
@@ -52,9 +54,27 @@
 
 jq时代,弹出界的扛把子
 
+```
+layer.open({
+  type: 1,
+  title: false,
+  closeBtn: 0,
+  shadeClose: true,
+  skin: 'yourclass',
+  content: '自定义HTML内容'
+});
 
+//iframe层-父子操作
+layer.open({
+  type: 2,
+  area: ['700px', '450px'],
+  fixed: false, //不固定
+  maxmin: true,
+  content: 'test/iframe.html'
+});
+```
 
+其复用的方式依然是"经典"的自定义html内容,因为仅包含html内容,故弹出框所对应的事件与样式\(js/css\),需要额外的处理\(引用\)
 
-
-
+第二种则是更"经典"的iframe复用,一个iframe,正好包括了弹出框所有要的html/js/css,且不涉及到
 
