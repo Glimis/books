@@ -27,11 +27,13 @@ css2
 
 * 底色与背景图\(无子节点的元素
 
-,常见的黑底+图   demo1
+常见的黑底+图   demo1
 
 * 修改position后,立马变成z-index的比较 z-index
 
-z-index的使用规范即
+z-index的使用规范,如
+
+[http://www.w3school.com.cn/cssref/pr\_pos\_z-index.asp](http://www.w3school.com.cn/cssref/pr_pos_z-index.asp)
 
 * 容器之间层叠均在兄弟之间,故比较时,属于只修改margin后产生的现象
 
