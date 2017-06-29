@@ -37,7 +37,7 @@ z-index的使用规范,如
 
 * float 脱离文档流
 
-
+本身用来做环绕效果,
 
 ## stacking context
 
