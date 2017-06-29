@@ -1,4 +1,4 @@
-# modal
+响应modal
 
 [http://v3.bootcss.com/javascript/\#modals](http://v3.bootcss.com/javascript/#modals)
 
@@ -44,7 +44,7 @@
 
 > 使用人不直接对modal进行样式的更改
 
-当然,也包括使用组件化的方式,在写到页面底层组件时,响应的gen
+当然,也包括使用组件化的方式,在写到页面底层组件时,响应的首页追加迷之依赖\(参照第一条\),尤其是单页面,如果使用vue全家桶,且有N多的modal,那基本上,根节点需要N多的,不知道可能在哪里会被引用的modal标签存在
 
 
 
