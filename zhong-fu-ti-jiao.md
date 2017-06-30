@@ -1,5 +1,5 @@
 > # 重复提交
-
+>
 > 单位时间内,多次非幂等\(post\)请求,造成的后台重复录入现象
 >
 > 单位时间内,多次幂等\(get\)操作照成数据与ui混乱的现象
@@ -64,9 +64,9 @@ function abort(ajax){
   preajax&&preajax.abort();
   global[ajax._url]=ajax
 }
+
+abort($.get('http://127.0.0.1:3001/cpu-project-def/ycctrl/projectdef/list?pageIndex=0&statuses=%5B12%2C14%2C15%2C16%2C17%2C29%2C32%2C33%2C34%2C35%2C36%5D&_=1498811377585&1498811382867'))
 ```
-
-
 
 ##### 忽略
 
