@@ -1,4 +1,4 @@
-# 重复提交
+> # 重复提交
 
 > 单位时间内,多次非幂等\(post\)请求,造成的后台重复录入现象
 >
@@ -50,6 +50,24 @@ xhr的abort函数
 
 对于get,可以保证当前请求为正确的结果\(最终效果第二条\)
 
+```
+$.ajaxSetup({
+  beforeSend:function(jqXHR, s ){
+    var callbackContext = this;
+    jqXHR._url=callbackContext.url
+  }
+})
+
+var global={};
+function abort(ajax){
+  var preajax = global[ajax._url];
+  preajax&&preajax.abort();
+  global[ajax._url]=ajax
+}
+```
+
+
+
 ##### 忽略
 
 1. 对于神之iuap的超级接口,需要个性化处理
@@ -82,8 +100,6 @@ get幂等缓存
 尤指保存
 
 ##### 转菊花
-
-
 
 ## 后台重复验证
 
