@@ -94,6 +94,8 @@ abort_ajax('/');
 
 分页,导航,搜索\(度娘\)均可使用
 
+![](/assets/resubmit-bd.png)
+
 ##### 其他
 
 若为传统\(10年前-。-\)的组件+url的形式,如
@@ -161,7 +163,9 @@ ignore_ajax({url:'/'});
 
 * 对于神之iuap的超级接口,需要个性化处理
 
-* 会无视,结果未返回时,请求参数\(body内\)已变更的请求
+![](/assets/iuap-datatable.png)
+
+* 会无视,结果未返回时,请求参数\(body内\)已变更的请求\(配合ui\)
 
 #### throttle/debounce
 
