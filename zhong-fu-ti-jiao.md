@@ -110,7 +110,6 @@ abort_ajax('/');
 ##### 实现
 
 ```
-
 var ignore_ajax=function(params){
     var preajax = global[params.url];
     if(preajax){
@@ -142,13 +141,30 @@ ignore_ajax({url:'/'});
 
 * 会无视,结果未返回时,请求参数\(body内\)已变更的请求
 
-##### throttle/debounce
+#### throttle/debounce
 
 高频\(鼠标移动,窗口大小\)请求中,调整请求和响应速度的方式,属于setTimeout的花样使用
 
-主要用于富文本下的快捷操作,按钮和自动保存,用以减少保存次数
+##### 实现
 
-##### memoize
+```
+var debounce_ajax = _.debounce($.ajax,5000);
+debounce_ajax('/')
+```
+
+* throttle
+
+> 优先执行,之后放哑炮,类似于忽略\(单例\),无法保证能够准确的响应最后一次操作
+
+不依赖最后一次响应的事件,比如mousemove,对于异步需要配合ui限制\(也可以改用忽略的方式\),总之,不是最好的选择
+
+* debounce
+
+> 单位时间内收集数据,而后进行请求,
+
+包含数据收集的输入框,都可以使用,比如触发框,富文本自动保存
+
+#### memoize
 
 get幂等缓存
 
