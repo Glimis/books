@@ -20,13 +20,10 @@
 
 以上三种情况之后统一描述重复提交
 
-
-
 ## 最终效果
 
-阻止ajax请求\(post/get\)
-
-正确响应最后一次结果
+* 阻止过多的ajax请求\(post/get\)
+* 正确响应最后一次结果
 
 ## 关键技术点
 
@@ -50,33 +47,65 @@ xhr的abort函数
 
 根据具体情况以及涉及范围,做以下区分
 
-#### ajax拦截
+### ajax拦截
 
-##### abort函数
+#### abort函数
 
-对原有xhr\(ajax\),进行abort处理,类似于timeout,触发条件不一样
+对原有xhr\(ajax\),进行abort处理
 
 对于post,并没有阻止ajax请求,请求已经发送,后台依然在处理请求
 
-对于get,可以保证当前请求为正确的结果\(最终效果第二条\)
+对于get,可以保证当前请求为正确的结果\(解决快速点击\)
+
+##### 实现
 
 ```
+var global={};
+
 $.ajaxSetup({
   beforeSend:function(jqXHR, s ){
+  //为jqXHR注入url
     var callbackContext = this;
     jqXHR._url=callbackContext.url
   }
-})
+});
 
-var global={};
+
 function abort(ajax){
+  //获取上一个请求
   var preajax = global[ajax._url];
   preajax&&preajax.abort();
   global[ajax._url]=ajax
-}
+};
 
-abort($.get('http://127.0.0.1:3001/cpu-project-def/ycctrl/projectdef/list?pageIndex=0&statuses=%5B12%2C14%2C15%2C16%2C17%2C29%2C32%2C33%2C34%2C35%2C36%5D&_=1498811377585&1498811382867'))
+var abort_ajax=_.flow($.get,abort);
+
+abort_ajax('/');
+abort_ajax('/');
+abort_ajax('/');
+abort_ajax('/');
 ```
+
+此种实现默认url获取数据后,会对数据进行分发
+
+###### 其他
+
+若为传统\(10年前-。-\)的组件+url的形式,如
+
+```
+<select url="api/students"></select>
+<select url="api/students"></select>
+```
+
+此时,会产生两条相同请求,获取数据后并不分发,需要改写代码 
+
+若对ajax进行了封装,使用注入Store/Model,vuex,flux之类的模型
+
+根据不同的场景描述不同的action,性质是一样的
+
+
+
+看起来abort
 
 ##### 忽略
 
