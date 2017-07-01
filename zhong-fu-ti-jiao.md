@@ -45,10 +45,6 @@ xhr的abort函数
 
 ## 处理
 
-根据具体情况以及涉及范围,做以下区分
-
-### ajax拦截
-
 #### abort函数
 
 对原有xhr\(ajax\),进行abort处理
@@ -88,7 +84,7 @@ abort_ajax('/');
 
 此种实现默认url获取数据后,会对数据进行分发
 
-###### 其他
+##### 其他
 
 若为传统\(10年前-。-\)的组件+url的形式,如
 
@@ -107,14 +103,44 @@ abort_ajax('/');
 >
 > js是同步的,无法解决同步的多次提交\(同步为卡顿,响应顺序并不会错误\)
 
-##### 忽略
+#### 忽略\(单例\)
 
-1. 对于神之iuap的超级接口,需要个性化处理
-2. 会无视,结果未返回时,请求参数已变更的请求
+根据url,对ajax实现单例,即当前url正在通讯时,返回上一个ajax,不在创建信息ajax
 
-快速搭建时使用
+##### 实现
 
-#### ajax包裹
+```
+
+var ignore_ajax=function(params){
+    var preajax = global[params.url];
+    if(preajax){
+      return preajax
+    }
+    var ajax = $.ajax(params)
+    ajax.then(function(){
+        global[this.url]=undefined;
+    })
+    global[params.url] = ajax;
+    return ajax;
+}
+
+ignore_ajax({url:'/'});
+ignore_ajax({url:'/'});
+ignore_ajax({url:'/'});
+ignore_ajax({url:'/'});
+```
+
+例子中省略global,ajaxSetup步奏,下同
+
+一般由Store,Model等封装ajax的模块,配合readyState进行操作,即将ajax改成单例
+
+无法保证最后一次请求的响应,故本身会配合ui进行限制性操作
+
+##### 其他
+
+* 对于神之iuap的超级接口,需要个性化处理
+
+* 会无视,结果未返回时,请求参数\(body内\)已变更的请求
 
 ##### throttle/debounce
 
