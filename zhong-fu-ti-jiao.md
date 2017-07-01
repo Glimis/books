@@ -206,6 +206,10 @@ var memoize_ajax =_.memoize($.ajax)
 
 比如requireJS,加载导航数据,菜单栏,甚至各种树结构
 
+#### validate/error/timeout
+
+禁止访问\(权限\),异常处理,超时等情况,虽然不属于重复提交,但处理上类似
+
 ### 限制ui
 
 此处ajax依赖ui,属于ajax处理后台进阶表现,尤其是单例的情况下
@@ -292,12 +296,6 @@ Store为ajax的封装,其中readyState为监听对象\(属性\),如果没有这�
 将整个执行函数处理为promise,而后进行个性化处理
 
 最好不要在ajax处理中,包含ui操作
-
-
-
-
-
-
 
 ## 后台重复验证
 
