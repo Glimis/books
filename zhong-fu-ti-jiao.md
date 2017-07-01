@@ -152,6 +152,8 @@ var debounce_ajax = _.debounce($.ajax,5000);
 debounce_ajax('/')
 ```
 
+##### 其他
+
 * throttle
 
 > 优先执行,之后放哑炮,类似于忽略\(单例\),无法保证能够准确的响应最后一次操作
