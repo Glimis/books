@@ -196,9 +196,82 @@ var memoize_ajax =_.memoize($.ajax)
 
 此处ajax依赖ui,属于ajax处理后台进阶表现,尤其是单例的情况下
 
+当然,只用ui控制也无所谓,多入口保存的情况还是比较少的
+
 #### disabled/active系列
 
+> 将整个操作函数封装为promise,并通过e获取相应ui
 
+```js
+export function buttonDisable(promise){
+    //寻找依赖ui
+    var e=arguments[arguments.length-1]
+    var btn=e.target.parentElement;
+    //设置类 or 属性
+    btn.setAttribute('disabled','')
+    promise()
+      .then(()=>{
+        btn.removeAttribute('disabled');
+      })
+      .catch(()=>{
+        btn.removeAttribute('disabled');
+      })
+}
+
+@buttonDisable
+async  submit(){
+    var data=await Post('/');
+    console.log(data);
+}
+```
+
+es6写法\(es5略\)
+
+整体包裹/限制的范围为submit的执行过程,若单独对ajax进行限制,对于嵌套/并行等各种花式ajax完全无爱
+
+当然,也可以做如下操作
+
+```js
+export function buttonDisable(vm){
+  return function(promise){
+    vm(false);
+    promise()
+      .then(()=>{
+        vm(true);
+      })
+      .catch(()=>{
+        vm(true);
+      })
+    }
+}
+
+@buttonDisable(vm.submitFlag)
+async  submit(){
+    var data=await Post('/');
+    console.log(data);
+}
+
+```
+
+```
+<button class="u-button u-button-info " data-bind="{click:submit,attr:{disabled:submitFlag}}">提交</button>
+```
+
+> 封装ajax,监听readyState
+
+```js
+
+async  submit(){
+    var data=await Store.load('');
+    console.log(data);
+}
+```
+
+```
+<button class="u-button u-button-info " data-bind="{click:submit,attr:{disabled:Store.readyState}}">提交</button>
+```
+
+Store为ajax的封装,其中readyState为监听对象\(属性\),如果没有这一层...
 
 #### 转菊花
 
