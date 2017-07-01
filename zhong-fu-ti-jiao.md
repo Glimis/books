@@ -43,11 +43,15 @@ xhr的abort函数
 
 > 保存正在进行的ajax操作\(0&lt;readyState&lt;4\)及其url,当该操作存在,且又要发送相同请求时,视为重复提交
 
-## 处理
+## 实现
 
-根据影响范围,做一下区分
+实现的方式有很多,此处会尽量做到减少污染和依赖\(变化\)
+
+根据影响范围,做以下区分
 
 ### ajax拦截/包裹/封装
+
+此处使用lodash的函数式写法,如果喜欢es7的装饰方式,需要做细微的调整
 
 #### abort函数
 
@@ -105,9 +109,21 @@ abort_ajax('/');
 
 根据不同的场景描述不同的action,性质是一样的
 
+如果非要用es7装饰,注意,promise\(现在\)没有abort,以下写法,不好实现\(单指写法,不探讨是否适合\)
+
+```
+@abort
+async  submit(){
+    var data=await Store.load('');
+    console.log(data);
+}
+```
+
 > abort思路,可以解决异步交互\(get\)下,最后一次响应的问题
 >
 > js是同步的,无法解决同步的多次提交\(同步为卡顿,响应顺序并不会错误\)
+
+
 
 #### 忽略\(单例\)
 
@@ -198,7 +214,7 @@ var memoize_ajax =_.memoize($.ajax)
 
 当然,只用ui控制也无所谓,多入口保存的情况还是比较少的
 
-#### disabled/active系列
+#### disabled/active系列/转菊花
 
 > 将整个操作函数封装为promise,并通过e获取相应ui
 
@@ -207,7 +223,7 @@ export function buttonDisable(promise){
     //寻找依赖ui
     var e=arguments[arguments.length-1]
     var btn=e.target.parentElement;
-    //设置类 or 属性
+    //设置类 or 属性 or 转菊花
     btn.setAttribute('disabled','')
     promise()
       .then(()=>{
@@ -229,7 +245,7 @@ es6写法\(es5略\)
 
 整体包裹/限制的范围为submit的执行过程,若单独对ajax进行限制,对于嵌套/并行等各种花式ajax完全无爱
 
-当然,也可以做如下操作
+当然,如果强迫必须视图属性代替视图,也可以做如下操作
 
 ```js
 export function buttonDisable(vm){
@@ -250,17 +266,17 @@ async  submit(){
     var data=await Post('/');
     console.log(data);
 }
-
 ```
 
 ```
 <button class="u-button u-button-info " data-bind="{click:submit,attr:{disabled:submitFlag}}">提交</button>
 ```
 
+submitFlag,需要提前定义,转菊花监听submitFlag变化即可
+
 > 封装ajax,监听readyState
 
 ```js
-
 async  submit(){
     var data=await Store.load('');
     console.log(data);
@@ -271,11 +287,15 @@ async  submit(){
 <button class="u-button u-button-info " data-bind="{click:submit,attr:{disabled:Store.readyState}}">提交</button>
 ```
 
-Store为ajax的封装,其中readyState为监听对象\(属性\),如果没有这一层...
+Store为ajax的封装,其中readyState为监听对象\(属性\),如果没有这一层...那就有一个,算一个-。-
 
-#### 转菊花
+##### 其他
 
-## 后台重复验证
+限制ui时,最好的方式依然是将整个执行函数处理为promise,而后进行个性化处理
+
+最好不要在ajax处理中,包含ui操作
+
+#### 后台重复验证
 
 提前提供id,将创建,改写为"修改",防止一对一的关系转换为一对多
 
