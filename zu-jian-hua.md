@@ -20,13 +20,11 @@
 
 ## 前端组件
 
-html/css/js的组合
+html/css/js的写法
 
 ## jq时代
 
 种子文件/core/基础/工具...以上说法等价于jq
-
-
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
