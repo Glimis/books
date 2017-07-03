@@ -58,7 +58,9 @@ but,业务爆炸的时候,css/js污染严重
 
 种子文件/core/基础/工具...以上说法等价于jq
 
-由此处开始组件细粒度的区分,
+由此处开始才是"组件"的开始
+
+
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
