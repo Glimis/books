@@ -20,7 +20,7 @@
 
 ## 前端组件
 
-html/css/js的写法
+html/css/js的写法,构建与实现
 
 ## jq时代
 
