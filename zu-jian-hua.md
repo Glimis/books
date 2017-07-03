@@ -32,8 +32,6 @@
 
 ### iframe
 
-iframe镇楼
-
 frame\(frameset,iframe\)家族提出了多窗口的概念,允许我们将业务进行简单的分离
 
 cv大发下,通过iframe嵌套也是常用的布局,比如dw下的各种经典布局,简单粗暴,还不带套
