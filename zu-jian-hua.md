@@ -38,7 +38,7 @@ frame\(frameset,iframe\)家族提出了多窗口的概念,允许我们将业务�
 
 cv大发下,通过iframe嵌套也是常用的布局,比如dw下的各种经典布局,简单粗暴,还不带套
 
-iframe对seo并不友好,至此,依赖搜索的网站拒绝iframe,而传统erp...你懂的
+iframe对seo并不友好\(没错,性能可以通过其他方式解决,但是seo...\),至此,依赖搜索的网站拒绝iframe,而传统erp...你懂的
 
 使用iframe的理由最有意思:
 
