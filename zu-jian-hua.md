@@ -26,6 +26,8 @@ html/css/js的写法,构建与实现
 
 种子文件/core/基础/工具...以上说法等价于jq
 
+js在这时纯属后妈养的,而且还是一群后妈,
+
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
 [https://www.w3.org/TR/custom-elements/](https://www.w3.org/TR/custom-elements/)
