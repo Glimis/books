@@ -58,7 +58,7 @@ but,业务爆炸的时候,css/js污染严重
 
 种子文件/core/基础/工具...以上说法等价于jq
 
-js在这时纯属后妈养的,而且还是一群后妈,兼容性不解决
+由此处开始组件细粒度的区分,
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
