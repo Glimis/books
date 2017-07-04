@@ -34,6 +34,8 @@ CV镇楼
 
 只有java web,没有前端
 
+如果没有脚手架,CV搭建初试页面也是常见的方式
+
 ### iframe
 
 frame\(frameset,iframe\)家族提出了多窗口的概念,允许我们将业务进行简单的分离
