@@ -18,7 +18,7 @@
 
 ## 前端组件
 
-即如何优雅的区分写html/css/js
+即如何优雅的区分/描述/写 html/css/js
 
 根据不同实现\(时代\),对公共代码\(组件\)实现做以下区分
 
@@ -59,8 +59,6 @@ but,业务爆炸的时候,css/js污染严重
 种子文件/core/基础/工具...以上说法等价于jq
 
 由此处开始才是"组件"的开始
-
-
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
