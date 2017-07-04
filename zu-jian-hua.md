@@ -62,9 +62,11 @@ frame\(frameset,iframe\)家族提出了多窗口的概念,允许我们将业务�
 
 后端版的iframe,用以解决seo的问题
 
-一般通过业务class/id,进行区分
+一般通过业务class/id,用以区分js/css
 
 but,业务爆炸的时候,css/js污染严重
+
+#### 总结
 
 ### jq时代
 
