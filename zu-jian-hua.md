@@ -82,6 +82,10 @@ ajax返回html\(即include\)代码,可保证浏览器的效率,减少前端白�
 
 由此处开始才是"组件"的开始
 
+
+
+
+
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
 [https://www.w3.org/TR/custom-elements/](https://www.w3.org/TR/custom-elements/)
