@@ -56,6 +56,8 @@ frame\(frameset,iframe\)家族提出了多窗口的概念,允许我们将业务�
 
 #### 总结
 
+多窗口特色,特殊场景使用
+
 ### include
 
 后端版的iframe,用以解决seo的问题
