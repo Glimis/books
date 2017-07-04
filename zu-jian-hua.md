@@ -74,7 +74,7 @@ but,业务爆炸的时候,css/js污染严重
 
 #### 总结
 
-ajax返回html\(即include\)代码,可保证浏览器的效率
+ajax返回html\(即include\)代码,可保证浏览器的效率,减少白屏事件
 
 ### jq时代
 
