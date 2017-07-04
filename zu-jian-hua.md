@@ -82,9 +82,64 @@ ajax返回html\(即include\)代码,可保证浏览器的效率,减少前端白�
 
 由此处开始才是"组件"的开始
 
+此时,组件的一般描述为特定的ui下,共享事件与函数/方法
 
+#### 共享事件
 
+##### 面向对象
 
+软件中做共享的常用方式--&gt;面向对象
+
+js引入对象概念,即pototype
+
+```js
+var element = document.getElementById("pagination");
+var comp = new u.pagination({ el: element,showState:false });
+comp.update({ totalPages: 100, pageSize: 20, currentPage: 1, totalCount: 200 });
+comp.on('pageChange', function(pageIndex) {
+    console.log('新的页号为' + pageIndex);
+});
+comp.on('sizeChange', function(arg) {
+    console.log('每页显示条数为' + arg[0]);
+});
+```
+
+以上为iuap的实现方式,创建后返回的是一个对象,一般通过$\('\#pagination'\).pagination\(\),的方式用以获取对象
+
+即pagination即代表初始化返回,也代表直接返回,这很jq
+
+当然,iuap并不一般...
+
+##### 面向闭包
+
+作为一个组件/类/对象,使用pototype没毛病,作为一组组件,依赖于某个指向时\(比如$\),直接使用闭包即可
+
+```
+$('#cc').combobox({
+	url: ...,
+	required: true,
+	valueField: 'id',
+	textField: 'text'
+});
+
+$('#cc').combobox('getData');
+```
+
+以上为easyui的api,其内部直接使用闭包
+
+```
+
+```
+
+其api包括,可以使用菊花链,初始化错误\(html不存在\),不为报错,可以预定义未实现的方法,总之,很函数式
+
+毕竟,js并不是专业的面向对象语言
+
+#### 总结
+
+老版,且单个的组件开发者,使用面向对象的方式实现
+
+组件库,则会将组件收集起来使用闭包的api进行拓展
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
