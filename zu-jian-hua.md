@@ -249,11 +249,17 @@ $.fn.combobox = function(options, param){
 
 ### EXT
 
-此处代表任意一款前端框架,但以Ext做描述,也可以称为全家桶
+这不是解决方案,只是另一个里程碑,此处代表任意一款前端框架,尤其是个厂内使用的
+
+以Ext为例
 
 ##### 完善的基础库
 
 一般具有强制性,也可以叫不依赖jq
+
+##### 众多组件
+
+不光能自定义,还能N级嵌套
 
 ##### 管理生命周期
 
@@ -263,9 +269,60 @@ $.fn.combobox = function(options, param){
 
 不是拼接html,也不是ajax传递html,而是前端模板,类似于format函数
 
+```
+renderTpl: [
+    '<span id="{id}-btnWrap" class="{baseCls}-wrap',
+        '<tpl if="splitCls"> {splitCls}</tpl>',
+        '{childElCls}" unselectable="on">',
+        '<span id="{id}-btnEl" class="{baseCls}-button">',
+            '<span id="{id}-btnInnerEl" class="{baseCls}-inner {innerCls}',
+                '{childElCls}" unselectable="on">',
+                '{text}',
+            '</span>',
+            '<span role="img" id="{id}-btnIconEl" class="{baseCls}-icon-el {iconCls}',
+                '{childElCls} {glyphCls}" unselectable="on" style="',
+                '<tpl if="iconUrl">background-image:url({iconUrl});</tpl>',
+                '<tpl if="glyph && glyphFontFamily">font-family:{glyphFontFamily};</tpl>">',
+                '<tpl if="glyph">&#{glyph};</tpl><tpl if="iconCls || iconUrl">&#160;</tpl>',
+            '</span>',
+        '</span>',
+    '</span>',
+    // if "closable" (tab) add a close element icon
+    '<tpl if="closable">',
+        '<span id="{id}-closeEl" class="{baseCls}-close-btn" title="{closeText}" tabIndex="0"></span>',
+    '</tpl>'
+],
+```
+
 ##### javaweb/重js
 
 css使用主题,html使用模板,js使用组件,此时的程序猿绝对属于javaweb级
+
+##### 更多的概念
+
+面向对象,继承,混合\(mixins\),按需加载,前端路由,mvc....
+
+只要你能想到的,都有实现
+
+##### 学习成本高
+
+对框架依赖过高
+
+##### 依赖架构\(难以维护\)
+
+没错,所有的技术都由架构组搭建完成,开源or最新技术,需要等架构组撸完才能使用,当然,使用该框架的人定位java web
+
+##### 越来越肿
+
+传统公司的需求,一家需求,必将转换为通用需求,反正留那不算错,类似思想在架构中也存在,如iuap
+
+关键在于,不是动态加载的,一上来就有的NB功能,但可能一辈子都用不上
+
+##### css
+
+window风格到扁平风,主题跟不上
+
+
 
 ### Bootstrap
 
