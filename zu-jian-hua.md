@@ -173,7 +173,7 @@ comp.on('sizeChange', function(arg) {
 
 ### EasyUI
 
-Yui,Ext,Bootstrap此处代表任意一款组件库
+此处代表组件库,Yui,Ext,Bootstrap你熟悉的任意一款
 
 主要用于解决样式风格差异和api差异的问题
 
@@ -198,23 +198,23 @@ $('#cc').combobox('getData');
 
 ```
 $.fn.combobox = function(options, param){
-	if (typeof options == 'string'){
-		//执行
-		var method = $.fn.combobox.methods[options];
-		if (method){
-			return method(this, param);
-		} else {
-			return this.combo(options, param);
-		}
-	}
-	
-	options = options || {};
-	//初始化
-	return this.each(function(){
-		//...
-		create(this);
-		//...
-	});
+    if (typeof options == 'string'){
+        //执行
+        var method = $.fn.combobox.methods[options];
+        if (method){
+            return method(this, param);
+        } else {
+            return this.combo(options, param);
+        }
+    }
+
+    options = options || {};
+    //初始化
+    return this.each(function(){
+        //...
+        create(this);
+        //...
+    });
 };
 ```
 
