@@ -249,7 +249,7 @@ $.fn.combobox = function(options, param){
 
 ### EXT
 
-此处代表任意一款前端框架,也可以称为全家桶
+此处代表任意一款前端框架,但已Ext做描述,也可以称为全家桶
 
 ##### 完善的基础库
 
@@ -257,13 +257,17 @@ $.fn.combobox = function(options, param){
 
 ##### 管理生命周期
 
-生命周期依赖上游组件,组件库难以实现
+生命周期依赖上游组件or框架,至少组件库难以实现
 
 ##### 模板
 
 不是拼接html,也不是ajax传递html,而是前端模板,类似于format函数
 
+##### javaweb/重js
 
+css使用主题,html使用模板,js使用组件,此时的程序猿绝对属于javaweb级
+
+Bootstrap
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
