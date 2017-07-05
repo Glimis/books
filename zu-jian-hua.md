@@ -82,11 +82,36 @@ frame\(frameset,iframe\)家族提出了多窗口的概念,允许我们将业务�
 
 ### ajax
 
+这不是解决方案,只是一个标记
+
+看一个典型组件的实现
+
+```
+<select>
+  <option>1</option>
+  <option>2</option>
+</select>
+```
+
+上面代表初始化数据
+
+```
+<span class="select2 select2-container select2-container--classic" dir="ltr" style="width: 100%;"><span class="selection">
+  <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-4b07-container">
+    //...
+  </span>
+</span>
+```
+
+这个代表组件实现的结构
+
+使用原生组件结构传递数据,通过js\($\(''\).select\(\)\),改变组件的样式与交互,达到封装具体css/js的目的,html化\(用原生组件传递初始数据\)的方式,是当时组件的一大特色
+
 ajax是一个标记
 
-数据,视图和控制的分离
+数据,视图和控制的分离是实现\(现在\)组件的基础
 
-
+此后,写组件就不用纠结于初始化数据如何传递,毕竟复杂的数据结构,不是原生组件能够描述的清的,当然,为了照顾后端渲染的方式,很多组件并没有直接放弃html化
 
 ### include
 
