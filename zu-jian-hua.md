@@ -141,9 +141,7 @@ ajax返回html\(即include\)代码,可保证浏览器的效率,减少前端白�
 
 此时,组件的一般描述为特定的ui下,共享事件与函数/方法
 
-#### 共享事件
-
-##### 面向对象
+#### 面向对象
 
 软件中做共享的常用方式--&gt;面向对象
 
@@ -167,6 +165,20 @@ comp.on('sizeChange', function(arg) {
 
 当然,iuap并不一般...
 
+#### 总结
+
+各类组件争clazz,样式极度冲突依赖作者
+
+风格差异大,api差异更大
+
+### EasyUI
+
+Yui,Ext,Bootstrap此处代表任意一款组件库
+
+主要用于解决样式风格差异和api差异的问题
+
+实现上也有一定差异
+
 ##### 面向闭包
 
 作为一个组件/类/对象,使用pototype没毛病,作为一组组件,依赖于某个指向时\(比如$\),直接使用闭包即可
@@ -185,18 +197,48 @@ $('#cc').combobox('getData');
 以上为easyui的api,其内部直接使用闭包
 
 ```
-
+$.fn.combobox = function(options, param){
+	if (typeof options == 'string'){
+		//执行
+		var method = $.fn.combobox.methods[options];
+		if (method){
+			return method(this, param);
+		} else {
+			return this.combo(options, param);
+		}
+	}
+	
+	options = options || {};
+	//初始化
+	return this.each(function(){
+		//...
+		create(this);
+		//...
+	});
+};
 ```
 
-其api包括,可以使用菊花链,初始化错误\(html不存在\),不为报错,可以预定义未实现的方法,总之,很函数式
+其api优势包括,可以使用菊花链,封装错误\(尤其是html不存在,不用判断对象是否存在\),可以预定义未实现的方法,保护对象内部属性,总之,很函数式
 
 毕竟,js并不是专业的面向对象语言
 
+##### 动态加载
+
+没四五十个组件都不好意思叫自己组件库,除了自定义组件外,如何优雅的动态加载也是组件库的标记\(引用.all文件的略\)
+
+最终形式性质类似于requireJs
+
+##### 皮肤/主题
+
+修改css依然蛋疼,但一般会提供几个theme方便参考
+
 #### 总结
 
-老版,且单个的组件开发者,使用面向对象的方式实现
+* 统一api风格与样式风格
+* 允许动态加载
+* 包含theme
 
-组件库,则会将组件收集起来使用闭包的api进行拓展
+### EXT
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
