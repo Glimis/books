@@ -240,7 +240,30 @@ $.fn.combobox = function(options, param){
 * 允许动态加载
 * 包含theme
 
+缺点也很明显
+
+* 基础库不能随意切换
+* 可能依赖基础库版本
+
+随手吐槽iuap,引用jq1.7与jq1.9的神级行为
+
 ### EXT
+
+此处代表任意一款前端框架,也可以称为全家桶
+
+##### 完善的基础库
+
+一般具有强制性,也可以叫不依赖jq
+
+##### 管理生命周期
+
+生命周期依赖上游组件,组件库难以实现
+
+##### 模板
+
+不是拼接html,也不是ajax传递html,而是前端模板,类似于format函数
+
+
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
