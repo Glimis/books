@@ -322,9 +322,17 @@ css使用主题,html使用模板,js使用组件,此时的程序猿绝对属于ja
 
 window风格到扁平风,主题跟不上
 
+##### 前端太快了
 
+12年,某国企励志,使用最先进的技术,在最牛逼的浏览器上进行开发...三年后,流产了...
+
+没错,当年IE系列一统江湖,其中IE8是大哥...
+
+activex,silverlight,flash,当时最火的东西,集体扑街
 
 ### Bootstrap
+
+此处代表的是轻量级
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
