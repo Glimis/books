@@ -20,6 +20,12 @@
 
 即如何优雅的区分/描述/写 html/css/js
 
+难点包括
+
+* js污染
+* css污染
+* html拼接
+
 根据不同实现\(时代\),对公共代码\(组件\)实现做以下区分
 
 实现与场景有关,大部分实现可相互组合
@@ -74,6 +80,8 @@ but,业务爆炸的时候,css/js污染严重
 
 #### 总结
 
+解决html:
+
 ajax返回html\(即include\)代码,可保证浏览器的效率,减少前端白屏/初始化时间
 
 ### jq时代
@@ -116,10 +124,10 @@ comp.on('sizeChange', function(arg) {
 
 ```
 $('#cc').combobox({
-	url: ...,
-	required: true,
-	valueField: 'id',
-	textField: 'text'
+    url: ...,
+    required: true,
+    valueField: 'id',
+    textField: 'text'
 });
 
 $('#cc').combobox('getData');
