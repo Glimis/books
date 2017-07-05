@@ -119,10 +119,6 @@ ajax是一个标记
 
 配合ajax使用,url返回已经做好处理的html
 
-一般通过业务class/id,用以区分js/css
-
-but,业务爆炸的时候,css/js污染严重
-
 百度分页
 
 博客园分页
