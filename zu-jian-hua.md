@@ -249,7 +249,7 @@ $.fn.combobox = function(options, param){
 
 ### EXT
 
-此处代表任意一款前端框架,但已Ext做描述,也可以称为全家桶
+此处代表任意一款前端框架,但以Ext做描述,也可以称为全家桶
 
 ##### 完善的基础库
 
@@ -267,7 +267,7 @@ $.fn.combobox = function(options, param){
 
 css使用主题,html使用模板,js使用组件,此时的程序猿绝对属于javaweb级
 
-Bootstrap
+### Bootstrap
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
