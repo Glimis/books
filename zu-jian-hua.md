@@ -117,7 +117,7 @@ ajax是一个标记
 
 后端版的iframe,用以解决seo的问题
 
-此时会配合ajax使用,url返回已经做好处理的html
+配合ajax使用,url返回已经做好处理的html
 
 一般通过业务class/id,用以区分js/css
 
