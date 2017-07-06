@@ -396,9 +396,44 @@ require/import
 
 单独的html/tpl文件 or es6的\`\`语法
 
-整体设计上类似
+整体设计上类似多窗口or层叠上下文,追加了作用域的概念,但目前过于先进,兼容性感人
 
+直接使用不行,但并不代表框架不可以借鉴此概念,MVVM系列框架,大多会参考该文档,用以自定义标签,大概是因为vm的作用域天生就适配shadow Dom的作用域吧
 
+大致有以下几种实现方式
+
+* 手动注册
+
+```
+Vue.component('test-component',{  
+    props:['message'],  
+    template:'<div>{{message}}</div>'  
+});  
+```
+
+* webpack
+
+```
+<template lang="jade">
+div {{msg}}
+
+</template>
+
+<script>
+
+export default {
+  data () {
+    return {
+      msg:'...'
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+
+</style>
+```
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
