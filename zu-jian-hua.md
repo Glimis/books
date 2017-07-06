@@ -368,11 +368,37 @@ es6语法:\`\`
 
 * css
 
+默认主题
+
 less/sass,使用特定类与继承风格描述
 
 * js
 
-动态/按需加载
+通过css进行事件注入,动态/按需加载,组件组合,统一api...
+
+### Web Component
+
+自定义标签,一个新世界的大门,html本身允许使用自定义标签/属性,然而没卵用啊,包含四个概念,概念后对应的是bootstrap系列中的处理方式
+
+* Shadow DOM 
+
+生命周期,指定css下通过代理与自定义事件的方式处理
+
+* Custom Elements
+
+创建风格,默认使用闭包的形式
+
+* HTML Imports
+
+require/import
+
+* HTML Templates
+
+单独的html/tpl文件 or es6的\`\`语法
+
+整体设计上类似
+
+
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
