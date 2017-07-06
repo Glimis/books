@@ -332,7 +332,7 @@ activex,silverlight,flash,当时最火的东西,集体扑街
 
 ### Bootstrap
 
-此处代表的是轻量级,是对框架的拆分和适配
+此处代表的是轻量级
 
 
 
