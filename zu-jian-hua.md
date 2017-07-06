@@ -334,7 +334,7 @@ activex,silverlight,flash,当时最火的东西,集体扑街
 
 ### Bootstrap
 
-此处代表的是轻量级,区分组件与js组件
+此处代表的是轻量级,已bootstrap为代表,其主要特色为区分组件与js组件
 
 * 组件
 
@@ -347,6 +347,32 @@ activex,silverlight,flash,当时最火的东西,集体扑街
 至此,描述组件仅需要html+css,描述js组件仅需要js,原则上遵循老传统,即不加载js时,页面可以看
 
 主题选用最新的扁平化,css使用less/sass,用以增加对于组件的拓展性
+
+在遵循不加载js也能看的基础上`组件实现一般不涉及dom的修改,且大部分实现可有代理($().on)的方式进行统一实现(不需要创建)`
+
+#### 总结
+
+* "面向对象"的css
+
+css分为结构/布局和业务,增加了点复杂性,需要花点时间了解布局
+
+bootstrap系列\(使用固定css组,描述组件\)属于jq时代组件的最优雅的方式,其中,
+
+* html
+
+include:js并不会修改dom,只用来追加事件
+
+前端模板:require
+
+es6语法:\`\`
+
+* css
+
+less/sass,使用特定类与继承风格描述
+
+* js
+
+动态/按需加载
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
