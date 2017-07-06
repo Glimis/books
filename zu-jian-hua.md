@@ -435,6 +435,17 @@ export default {
 </style>
 ```
 
+##### 具体实现可直接撸api
+
+1. [knockout](http://knockoutjs.com/documentation/component-overview.html)
+2. [vue](https://cn.vuejs.org/v2/api/#Vue-component)
+3. 4. 5. 6. react 
+7. backbone 
+8.  angular 
+9. Vue.js 
+
+...
+
 ##### 参考资料
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
