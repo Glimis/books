@@ -400,7 +400,7 @@ require/import
 
 直接使用不行,但并不代表框架不可以借鉴此概念,MVVM系列框架,大多会参考该文档,用以自定义标签,大概是因为vm的作用域天生就适配shadow Dom的作用域吧
 
-总之,标榜自己可以组件化的MVVM框架,基本包含以下几种实现方式
+总之,标榜自己可以组件化的MVVM框架,基本都吸取了类似的概念,一般包括两部
 
 * 手动注册
 
@@ -435,11 +435,19 @@ export default {
 </style>
 ```
 
-##### 具体实现可直接撸api
+使用对应的webpack-loader,对webcomponent更友好,
+
+具体组件的实现可直接撸api
 
 [knockout](http://knockoutjs.com/documentation/component-overview.html)
 
 [vue](https://cn.vuejs.org/v2/api/#Vue-component)
+
+[ember](https://emberjs.com/api/classes/Ember.Component.html)
+
+....
+
+
 
 ##### 参考资料
 
