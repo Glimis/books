@@ -437,14 +437,9 @@ export default {
 
 ##### 具体实现可直接撸api
 
-1. [knockout](http://knockoutjs.com/documentation/component-overview.html)
-2. [vue](https://cn.vuejs.org/v2/api/#Vue-component)
-3. 4. 5. 6. react 
-7. backbone 
-8.  angular 
-9. Vue.js 
+[knockout](http://knockoutjs.com/documentation/component-overview.html)
 
-...
+[vue](https://cn.vuejs.org/v2/api/#Vue-component)
 
 ##### 参考资料
 
