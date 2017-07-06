@@ -171,6 +171,8 @@ comp.on('sizeChange', function(arg) {
 
 风格差异大,api差异更大
 
+依赖js,不加载js时,页面没法看\(白屏时间or加载时间\)
+
 ### EasyUI
 
 此处代表组件库,Yui,Ext,Bootstrap你熟悉的任意一款
@@ -332,9 +334,19 @@ activex,silverlight,flash,当时最火的东西,集体扑街
 
 ### Bootstrap
 
-此处代表的是轻量级
+此处代表的是轻量级,区分组件与js组件
 
+* 组件
 
+使用固定css描述的html
+
+* js组件
+
+对组件进行生命周期的加载
+
+至此,描述组件仅需要html+css,描述js组件仅需要js,原则上遵循老传统,即不加载js时,页面可以看
+
+主题选用最新的扁平化,css使用less/sass,用以增加对于组件的拓展性
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
