@@ -396,11 +396,11 @@ require/import
 
 单独的html/tpl文件 or es6的\`\`语法
 
-整体设计上类似多窗口or层叠上下文,追加了作用域的概念,但目前过于先进,兼容性感人
+整体设计上类似多窗口or层叠上下文,追加了作用域的概念,但目前过于先进,兼容性感人,估计api略,有兴趣直接看[文档](https://www.w3.org/TR/#tr_Web_Components)
 
 直接使用不行,但并不代表框架不可以借鉴此概念,MVVM系列框架,大多会参考该文档,用以自定义标签,大概是因为vm的作用域天生就适配shadow Dom的作用域吧
 
-大致有以下几种实现方式
+总之,标榜自己可以组件化的MVVM框架,基本包含以下几种实现方式
 
 * 手动注册
 
@@ -408,7 +408,7 @@ require/import
 Vue.component('test-component',{  
     props:['message'],  
     template:'<div>{{message}}</div>'  
-});  
+});
 ```
 
 * webpack
@@ -434,6 +434,8 @@ export default {
 
 </style>
 ```
+
+##### 参考资料
 
 [https://www.w3.org/TR/shadow-dom/](https://www.w3.org/TR/shadow-dom/)
 
