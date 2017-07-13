@@ -18,6 +18,8 @@ process.argv,第一个为node路径,第二个为执行文件路径,身下的为�
 
 解析命令的核心包,将参数\(str\)转换为数据\({}\),定义key以--/-或开头,或value 以=开头,其他情况key为true等相关内容
 
+minimist的变化对optimist有一定影响,部分example可能是错的,影响不大,不纠结
+
 * 依赖wordwrap,打印内容
 
 optimist,在minimist基础上追加各种错误提示,格式验证/转换,当然,顺便固定了一下参数
