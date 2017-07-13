@@ -12,7 +12,5 @@ webpack-dev-server   --host 127.0.0.1 --inline --hot --config config/webpack.dev
 
 ##### optimist
 
-如何有逼格的描写
-
-
+如何有逼格的描写node参数
 
