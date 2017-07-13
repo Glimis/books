@@ -7,4 +7,5 @@
 * [组件化](zu-jian-hua.md)
 * [optimist](optimist.md)
 * [+](+.md)
+* i18n
 
