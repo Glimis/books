@@ -20,7 +20,7 @@ process.argv,第一个为node路径,第二个为执行文件路径,身下的为�
 
 * 依赖wordwrap,打印内容
 
-所以,optimist
+optimist,在minimist基础上追加各种错误提示,格式验证/转换
 
 ### 例子
 
