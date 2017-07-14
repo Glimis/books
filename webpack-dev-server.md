@@ -21,40 +21,40 @@ options,会尽力...中进行一系列的初始化,其中下面的devClient为�
 ```js
 //.....
 if(options.inline) {
-	var devClient = [require.resolve("../client/") + "?" + protocol + "://" + (options.public || (options.host + ":" + options.port))];
+    var devClient = [require.resolve("../client/") + "?" + protocol + "://" + (options.public || (options.host + ":" + options.port))];
 
-	if(options.hot)
-		devClient.push("webpack/hot/dev-server");
-	[].concat(wpOpt).forEach(function(wpOpt) {
-		if(typeof wpOpt.entry === "object" && !Array.isArray(wpOpt.entry)) {
-			Object.keys(wpOpt.entry).forEach(function(key) {
-				wpOpt.entry[key] = devClient.concat(wpOpt.entry[key]);
-			});
-		} else {
-			wpOpt.entry = devClient.concat(wpOpt.entry);
-		}
-	});
+    if(options.hot)
+        devClient.push("webpack/hot/dev-server");
+    [].concat(wpOpt).forEach(function(wpOpt) {
+        if(typeof wpOpt.entry === "object" && !Array.isArray(wpOpt.entry)) {
+            Object.keys(wpOpt.entry).forEach(function(key) {
+                wpOpt.entry[key] = devClient.concat(wpOpt.entry[key]);
+            });
+        } else {
+            wpOpt.entry = devClient.concat(wpOpt.entry);
+        }
+    });
 }
 new Server(webpack(wpOpt), options).listen(options.port, options.host, function(err) {
-	var uri = protocol + "://" + options.host + ":" + options.port + "/";
-	if(!options.inline)
-		uri += "webpack-dev-server/";
+    var uri = protocol + "://" + options.host + ":" + options.port + "/";
+    if(!options.inline)
+        uri += "webpack-dev-server/";
 
-	if(err) throw err;
-	console.log(" " + uri);
-	console.log("webpack result is served from " + options.publicPath);
-	if(typeof options.contentBase === "object")
-		console.log("requests are proxied to " + options.contentBase.target);
-	else
-		console.log("content is served from " + options.contentBase);
-	if(options.historyApiFallback)
-		console.log("404s will fallback to %s", options.historyApiFallback.index || "/index.html");
-	if(options.open)
-		open(uri);
+    if(err) throw err;
+    console.log(" " + uri);
+    console.log("webpack result is served from " + options.publicPath);
+    if(typeof options.contentBase === "object")
+        console.log("requests are proxied to " + options.contentBase.target);
+    else
+        console.log("content is served from " + options.contentBase);
+    if(options.historyApiFallback)
+        console.log("404s will fallback to %s", options.historyApiFallback.index || "/index.html");
+    if(options.open)
+        open(uri);
 });
 ```
 
-至此,只用webpack与hot模块搭建开发模式需要以下两部分,不难理解吧
+至此,通过node服务而非webpack-dev-server命令的方式部署,需要以下两部分,不难理解吧
 
 ```js
 var devClient = ["webpack-dev-server\\client\\index.js?http://"+host+":"+(devServer.port||3001), "webpack/hot/dev-server"]
@@ -64,7 +64,6 @@ Object.keys(config.entry).forEach(function(key) {
 });
 
 //引用
-new webpack.HotModuleReplacementPlugin()
 ```
 
 #### lib/Server
@@ -73,48 +72,74 @@ new webpack.HotModuleReplacementPlugin()
 
 ```js
 app.get("/webpack-dev-server", function(req, res) {
-		res.setHeader("Content-Type", "text/html");
-		res.write('<!DOCTYPE html><html><head><meta charset="utf-8"/></head><body>');
-		var path = this.middleware.getFilenameFromUrl(options.publicPath || "/");
-		var fs = this.middleware.fileSystem;
-		//...
+        res.setHeader("Content-Type", "text/html");
+        res.write('<!DOCTYPE html><html><head><meta charset="utf-8"/></head><body>');
+        var path = this.middleware.getFilenameFromUrl(options.publicPath || "/");
+        var fs = this.middleware.fileSystem;
+        //...
 })
 ```
 
-http://127.0.0.1:3001/webpack-dev-server就是最好的导航
+[http://127.0.0.1:3001/webpack-dev-server就是最好的导航](http://127.0.0.1:3001/webpack-dev-server就是最好的导航)
 
-![](/assets/webpack-dev-server-1.png)
+
 
 ##### 代理
 
 ```js
 options.proxy.forEach(function(proxyConfig) {
-	var bypass = typeof proxyConfig.bypass === 'function';
-	var context = proxyConfig.context || proxyConfig.path;
-	var proxyMiddleware;
-	// It is possible to use the `bypass` method without a `target`.
-	// However, the proxy middleware has no use in this case, and will fail to instantiate.
-	if(proxyConfig.target) {
-		proxyMiddleware = httpProxyMiddleware(context, proxyConfig);
-	}
+    var bypass = typeof proxyConfig.bypass === 'function';
+    var context = proxyConfig.context || proxyConfig.path;
+    var proxyMiddleware;
+    // It is possible to use the `bypass` method without a `target`.
+    // However, the proxy middleware has no use in this case, and will fail to instantiate.
+    if(proxyConfig.target) {
+        proxyMiddleware = httpProxyMiddleware(context, proxyConfig);
+    }
 
-	app.use(function(req, res, next) {
-		var bypassUrl = bypass && proxyConfig.bypass(req, res, proxyConfig) || false;
+    app.use(function(req, res, next) {
+        var bypassUrl = bypass && proxyConfig.bypass(req, res, proxyConfig) || false;
 
-		if(bypassUrl) {
-			req.url = bypassUrl;
-			next();
-		} else if(proxyMiddleware) {
-			return proxyMiddleware(req, res, next);
-		}
-	});
+        if(bypassUrl) {
+            req.url = bypassUrl;
+            next();
+        } else if(proxyMiddleware) {
+            return proxyMiddleware(req, res, next);
+        }
+    });
 });
-
 ```
 
 使用httpProxyMiddleware
 
-
-
 其他略
+
+##### 使用node服务开发
+
+主要用于将启动命令转换为同步脚本or嵌入至其他平台中等需求,如下,为通过一个url,启动一个关联的服务
+
+```js
+var devClient = ["webpack-dev-server\\client\\index.js?http://"+host+":"+(devServer.port||3001), "webpack/hot/dev-server"]
+
+Object.keys(config.entry).forEach(function(key) {
+    config.entry[key] = devClient.concat(config.entry[key]);
+});
+//....
+var  Server = new WebpackDevServer(webpack(config), proxy);
+ Server.listen(config.devServer.port, localhost, function (err, result) {
+    if (err) {
+     global.io.sockets.emit('error', {
+        name:name,
+        msg:err
+     }); 
+    }else{
+     global.io.sockets.emit('npm.dev', {
+        name:name,
+        msg:'项目已启动:'+config.devServer.port
+     }); 
+    }
+});
+```
+
+大多数情况下,没必要这样
 
