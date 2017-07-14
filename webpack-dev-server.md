@@ -82,7 +82,7 @@ app.get("/webpack-dev-server", function(req, res) {
 
 [http://127.0.0.1:3001/webpack-dev-server就是最好的导航](http://127.0.0.1:3001/webpack-dev-server就是最好的导航)
 
-
+![](/assets/webpack-dev-server-1.png)
 
 ##### 代理
 
