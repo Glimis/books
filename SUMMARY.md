@@ -10,4 +10,5 @@
 * i18n
 * [webpack-dev-server](webpack-dev-server.md)
 * [webpack](webpack.md)
+* [轻量级组件](qing-liang-ji-zu-jian.md)
 

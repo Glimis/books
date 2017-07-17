@@ -93,25 +93,25 @@ webpack 命令,根据watch决定调用run or watch...
 
 ```js
 Compiler.prototype.run = function(callback) {
-	//...
-	this.compile(function(err, compilation) {})
-	//...
-};			
+    //...
+    this.compile(function(err, compilation) {})
+    //...
+};            
 
 Compiler.prototype.createCompilation = function() {
-	return new Compilation(this);
+    return new Compilation(this);
 };
 
 Compiler.prototype.newCompilation = function(params) {
-	var compilation = this.createCompilation();
-	//...
-	return compilation;
+    var compilation = this.createCompilation();
+    //...
+    return compilation;
 };
 
 Compiler.prototype.compile = function(callback) {
-	//..
-	var compilation = this.newCompilation(params);
-	//..
+    //..
+    var compilation = this.newCompilation(params);
+    //..
 };
 ```
 
@@ -120,4 +120,22 @@ run会调用compile,compile时会创建新的Compilation
 watch会调用Watch.\_go,其也回调用compile这个函数
 
 即compiler是全局参数,compilation是运行时参数
+
+## apply and plugin?
+
+```js
+function HelloWorldPlugin(options) {
+  // Setup the plugin instance with options...
+}
+
+HelloWorldPlugin.prototype.apply = function(compiler) {
+  compiler.plugin('done', function() {
+    console.log('Hello World!'); 
+  });
+};
+
+module.exports = HelloWorldPlugin;
+```
+
+
 
