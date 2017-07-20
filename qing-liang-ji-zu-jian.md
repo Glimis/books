@@ -4,17 +4,11 @@
 
 [datatables](http://www.datatables.club/example/diy.html)
 
-
-
 然而...
-
-
 
 ### 灵活性低
 
 这是新版的展示风格,来撸一个
-
-
 
 不要说不适合的话,第一版的时候与PM直接沟通,非常适合,此处为追加ui/ue/ux后,出的第一版效果图,注意措辞,第一版
 
@@ -79,11 +73,7 @@ table.dataTable tbody tr {
 
 什么都好,但没有js
 
-
-
-
-
-
+## 例子
 
 
 
