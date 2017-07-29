@@ -12,11 +12,11 @@
 
 下拉实现如下
 
-![](/assets/iuap-1.png)
+
 
 很好,将上级容器overflow改为hidden,就会
 
-![](/assets/iuap-2.png)
+
 
 意料之中,所以当弹出层,grid等需要下拉,tip时
 
@@ -24,9 +24,13 @@ iuap给的具体方案是将上层,上层的上层...overflow修改为auto,很�
 
 easyui,yui看不懂也没事,就算是抄jqueryui也不会出现这种解决方案,难道抄的是bootstrap的dropdowns?人家的定义叫菜单,不叫下拉
 
-下拉\(select\)属于窗口元素,是少数可以穿透浏览器的元素,注入
+下拉\(select\)属于窗口元素,是少数可以穿透浏览器容器的元素,注入
+
+
 
 取消这种穿透无所谓,但至少...算了,下拉与菜单的区别,找个实习生问问
+
+当然,如果是山寨的是某些国产山寨的bootstrap系的ui库,记得帮我喷死他
 
 ## 下拉,不支持datatable
 
