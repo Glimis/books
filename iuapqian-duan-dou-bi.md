@@ -4,8 +4,6 @@
 
 先说这些屌炸天的组件
 
-
-
 ## 层叠系列
 
 指modal,下拉,时间,tip等一切层叠相关的组件
@@ -14,7 +12,11 @@
 
 下拉实现如下
 
+![](/assets/iuap-1.png)
+
 很好,将上级容器overflow改为hidden,就会
+
+![](/assets/iuap-2.png)
 
 意料之中,所以当弹出层,grid等需要下拉,tip时
 
