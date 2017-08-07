@@ -13,4 +13,5 @@
 * [轻量级组件](qing-liang-ji-zu-jian.md)
 * [iuap-前端逗比](iuapqian-duan-dou-bi.md)
 * [ViewModel](viewmodel.md)
+* [最佳实践-select](zui-jia-shi-8df5-select.md)
 
