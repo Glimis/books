@@ -154,7 +154,7 @@ table至少包括两个部分,thead,tbody,他是天生的复合组件,想用纯�
 ```js
 <tr data-bind="foreach : $parent.config.header" >
   <td data-bind="html:render(row)">
-    
+
   </td>
 </tr>
 ```
@@ -197,7 +197,7 @@ this.store = ko.computed(function(){
   var sort = _.filter(header,function(item){
     return item.sort();
   })
-  
+
   return _.sortBy(data,_.map(sort,'value'));
 })
 ```
@@ -211,6 +211,44 @@ this.store = ko.computed(function(){
 #### 新旧对比
 
 编辑时,需要将数据改为`observable`格式,用以监听对比
+
+```js
+//新的vm对象，丢至全局用于测试
+window.storeObservable = this.storeObservable = ko.computed(function(){
+  //基于原始数据与列数据进行重新分配
+  var data = self._data = self.data();
+  return _.map(data,function(item){
+      var rs = {}
+      _.each(item,function(val,key){
+        rs[key]=ko.observable(val)
+      })
+      return rs;
+  })
+})
+//封装监听的对象-->追加排序
+this.store = ko.computed(function(){
+  
+  var data = self.storeObservable(),
+      header = self.header;
+  //简易排序
+  var sort = _.filter(header,function(item){
+    return item.sort();
+  })
+  return _.sortBy(data,function(item){
+    return _.map(sort,function(obj){
+      return item[obj.value]()
+    })
+  });
+})
+```
+
+观察console,此时,修改源数据,将会render多次\(storeObservable对其监听\),而使用vm做内部修改,则只render一次\(修改当前行\),且只有通过内部修改的方式才会标红,然而又不会对外部数据源产生影响...\(有点绕口,看图说话\)
+
+总之一句话,复杂组件如grid,其数据源为一个对象,再设计时,不能像简单组件一样直接进行双向绑定,会基于数据源,产生新的vmStore,渲染时甚至会使用依赖vmStore与vmConfig产生的新的vm用于做排序,分组等其他操作,此时,对grid的操作如修改,排序均不会对原数据源生影响,即`组件内部将data理解为model而后生成自己的vm`,故保存时需要注意使用以下api
+
+```js
+data.list = element.data;
+```
 
 ### 参考
 
