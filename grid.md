@@ -227,7 +227,7 @@ window.storeObservable = this.storeObservable = ko.computed(function(){
 })
 //封装监听的对象-->追加排序
 this.store = ko.computed(function(){
-  
+
   var data = self.storeObservable(),
       header = self.header;
   //简易排序
@@ -247,10 +247,11 @@ this.store = ko.computed(function(){
 总之一句话,复杂组件如grid,其数据源为一个对象,再设计时,不能像简单组件一样直接进行双向绑定,会基于数据源,产生新的vmStore,渲染时甚至会使用依赖vmStore与vmConfig产生的新的vm用于做排序,分组等其他操作,此时,对grid的操作如修改,排序均不会对原数据源生影响,即`组件内部将data理解为model而后生成自己的vm`,故保存时需要注意使用以下api
 
 ```js
+//将模型指向改为对应组件修改后的数据(vm)
 data.list = element.data;
 ```
 
 ### 参考
 
-初始化组件方案
+[初始化组件方案](https://github.com/Glimis/books/blob/master/chuang-5efa-chu-shi-hua-jq-zu-jian-fang-an.md)
 
