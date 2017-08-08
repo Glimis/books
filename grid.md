@@ -251,6 +251,8 @@ this.store = ko.computed(function(){
 data.list = element.data;
 ```
 
+[https://github.com/Glimis/practice/blob/master/grid/index6.html](https://github.com/Glimis/practice/blob/master/grid/index6.html)
+
 ### 参考
 
 [初始化组件方案](https://github.com/Glimis/books/blob/master/chuang-5efa-chu-shi-hua-jq-zu-jian-fang-an.md)
