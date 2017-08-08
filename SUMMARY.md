@@ -14,4 +14,5 @@
 * [iuap-前端逗比](iuapqian-duan-dou-bi.md)
 * [ViewModel](viewmodel.md)
 * [最佳实践-select](zui-jia-shi-8df5-select.md)
+* [创建/初始化组件](chuang-5efa-chu-shi-hua-jq-zu-jian-fang-an.md)
 
