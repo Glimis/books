@@ -16,4 +16,5 @@
 * [最佳实践-select](zui-jia-shi-8df5-select.md)
 * [创建/初始化组件](chuang-5efa-chu-shi-hua-jq-zu-jian-fang-an.md)
 * [Grid](grid.md)
+* [上传](shang-chuan.md)
 
