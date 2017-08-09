@@ -249,9 +249,98 @@ this.store = ko.computed(function(){
 ```js
 //将模型指向改为对应组件修改后的数据(vm)
 data.list = element.data;
+//或
+data.list = element.rebuild;(iview)
 ```
 
 [https://github.com/Glimis/practice/blob/master/grid/index6.html](https://github.com/Glimis/practice/blob/master/grid/index6.html)
+
+## 补充
+
+特殊情况下,依然会使用table的展示方式进行修改并配合computed进行展示,如统计价格...使用rebuile对统计不友好,且默认认为,修改时,不进行排序等影响整体vm的情况,故可直接关联vm
+
+注:依然认为修改,编辑为Form系列,但是苦于用户需求-。-
+
+如iview下,参照table api,追加vForm,用于直接修改全局vm
+
+vForm
+
+```html
+<template>
+    <div class="ivu-table-wrapper">
+        <div class="ivu-table ivu-table-stripe">
+            <table cellspacing="0" cellpadding="0" border="0" class="table">
+                <thead>
+                    <tr>
+                        <th v-for="(item,index) in columns" :key="index">
+                            <div class="ivu-table-cell">{{item.title}}</div>
+                        </th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    <tr v-for="(item,index) in data" :key="index">
+                        <td v-for="(it,i) in columns" :key="i">
+                            <div class="ivu-table-cell">
+                                <vFormCell :head="it" :data="item" :render="it.render||render"></vFormCell>
+                            </div>
+                        </td>
+                    
+                    </tr>
+                </tbody> 
+            </table>
+        </div>
+    </div>
+</template>
+<script>
+    import util from 'util' 
+    import vFormCell from './vFormCell.js'
+    import _ from 'lodash'
+    export default {
+        components:{
+            vFormCell
+        },
+        props:['columns','data'],
+        data(){
+            return {
+                render(h,ctx){
+                    var key = ctx.column.key,
+                        val = _.get(ctx.row,key);
+                    return (
+                        <div>{val}</div>
+                    )
+                }
+            }
+        },
+        methods:{
+          
+        }
+    }
+</script>
+```
+
+vFormCell
+
+```html
+import _ from 'lodash'
+export default {
+    name: 'vFormCell',
+    functional: true,
+    props: {
+        render: Function,
+        head: Object,
+        data: Object
+    },
+    render: (h, ctx) => {
+        const params = {
+            row: ctx.props.data,
+            column:{
+                key:ctx.props.head.key
+            }
+        };
+        return ctx.props.render(h, params);
+    }
+};
+```
 
 ### 参考
 
